@@ -7,19 +7,6 @@ void setup() {
   unsigned char res;
   Serial.begin(9600);
 
-  Serial.println("Sending GET_IC_VER Command...");
-  ch375.port->write9(0x101);
-
-  for(int i = 0; i < 1000; ++i) {
-    delay(1);
-    if(ch375.port->available()) {
-      Serial.println("got responce");
-      res = ch375.port->read();
-    }
-  }
-  Serial.print("0x");
-  Serial.println(res, HEX);
-
   /*** 5.1 CMD_GET_IC_VER ***/
   Serial.println("\n## 5.1 CMD_GET_IC_VER");
   ch375.cmd(CMD_GET_IC_VER);
