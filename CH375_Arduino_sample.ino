@@ -6,10 +6,10 @@ CH375 ch375(10, 11);
 void setup() {
   unsigned char res;
   Serial.begin(9600);
-  
+
   Serial.println("Sending GET_IC_VER Command...");
   ch375.port->write9(0x101);
-  
+
   for(int i = 0; i < 1000; ++i) {
     delay(1);
     if(ch375.port->available()) {
